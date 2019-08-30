@@ -3,12 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
+// import VueResource from 'vue-resource'
 import Router from './router'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
-Vue.use(VueResource)
+
+// 全局配置axios
+axios.defaults.baseURL = 'http://jsonplaceholder.typicode.com'
+// axios.defaults.headers.common['Authorization'] = 'Token'
+// axios.defaults.headers.post['Content-type'] = 'appliaction/urlencode'
+
+// Vue.use(VueResource)
 
 // 全局自定义指令
 // Vue.directive('rainbow', {

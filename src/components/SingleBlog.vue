@@ -5,20 +5,21 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-    name: 'single-blog',
-    data(){
-        return{
-            id:this.$route.params.id,
-            blog: {}
-        }
-    },
-    created(){
-            this.$http.get('http://jsonplaceholder.typicode.com/posts/' +this.id)
-            .then(data =>{
-                this.blog = data.body
-            } )
-        }
+  name: 'single-blog',
+  data () {
+    return {
+      id: this.$route.params.id,
+      blog: {}
+    }
+  },
+  created () {
+    axios.get('/posts/' + this.id)
+      .then(data => {
+        this.blog = data.data
+      })
+  }
 }
 </script>
 

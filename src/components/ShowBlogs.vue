@@ -14,6 +14,8 @@
 </template>
 
 <script>
+
+import axios from 'axios'
 export default {
   name: 'show-blogs',
   data () {
@@ -23,12 +25,11 @@ export default {
     }
   },
   created () {
-    // this.$http.get('http://jsonplaceholder.typicode.com/posts')
+    axios.get('/posts')
     // 请求本地文件
-    this.$http.get('./../static/posts.json')
+    // this.$http.get('./../static/posts.json')
       .then(data => {
-        this.blogs = data.body.slice(0, 10)
-        console.log(this.blogs)
+        this.blogs = data.data.slice(0, 10)
       })
   },
   computed: {

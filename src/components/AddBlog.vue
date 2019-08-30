@@ -48,6 +48,7 @@
 
 <script>
 
+import axios from 'axios'
 export default {
   // http://jsonplaceholder.typicode.com/
   // http://jsonplaceholder.typicode.com/posts
@@ -66,7 +67,8 @@ export default {
   },
   methods: {
     post () {
-      this.$http.post('http://jsonplaceholder.typicode.com/posts', {
+      // this.$http.post('http://jsonplaceholder.typicode.com/posts', {
+      axios.post('/posts', {
         title: this.blog.title,
         body: this.blog.content,
         userId: 1
